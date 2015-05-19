@@ -10,6 +10,7 @@ import static org.junit.Assert.*;
 /**
  *
  * @author Rosa Medina
+ * @author Jose Miguel Dura Sirvent
  */
 public class PilaTest {
     
@@ -39,11 +40,14 @@ public class PilaTest {
     public void testEstaVacia() {
         System.out.println("estaVacia");
         Pila instance = new Pila();
-        boolean expResult = false;
+        boolean expResult = true;
         boolean result = instance.estaVacia();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        
+        instance.apilar(5);
+        expResult=false;
+        result=instance.estaVacia();
+        assertEquals(expResult,result);
     }
 
     /**
@@ -56,8 +60,15 @@ public class PilaTest {
         boolean expResult = false;
         boolean result = instance.estaLlena();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        
+        instance.apilar(5);
+        instance.apilar(5);
+        instance.apilar(5);
+        instance.apilar(5);
+        instance.apilar(5);
+        expResult=true;
+        result=instance.estaLlena();
+        assertEquals(expResult,result);
     }
 
     /**
@@ -69,8 +80,6 @@ public class PilaTest {
         int valor = 0;
         Pila instance = new Pila();
         instance.apilar(valor);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -80,11 +89,10 @@ public class PilaTest {
     public void testDesapilar() {
         System.out.println("desapilar");
         Pila instance = new Pila();
-        int expResult = 0;
+        instance.apilar(5);
+        int expResult = 5;
         int result = instance.desapilar();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -95,8 +103,6 @@ public class PilaTest {
         System.out.println("vaciar");
         Pila instance = new Pila();
         instance.vaciar();
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
     
 }
