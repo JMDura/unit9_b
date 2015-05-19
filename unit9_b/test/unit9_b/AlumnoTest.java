@@ -5,10 +5,6 @@
  */
 package unit9_b;
 
-import org.junit.After;
-import org.junit.AfterClass;
-import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
@@ -17,35 +13,38 @@ import static org.junit.Assert.*;
  * @author Jose Miguel Dura Sirvent
  */
 public class AlumnoTest {
-    
-    public AlumnoTest() {
-    }
-    
-    @BeforeClass
-    public static void setUpClass() {
-    }
-    
-    @AfterClass
-    public static void tearDownClass() {
-    }
-    
-    @Before
-    public void setUp() {
-    }
-    
-    @After
-    public void tearDown() {
-    }
-
+   
     @Test
     public void testValidaNif() {
         System.out.println("validaNif");
-        String nif = "";
+        String nif = "48669823Y";
         Alumno instance = new Alumno();
-        boolean expResult = false;
+        boolean expResult = true;
         boolean result = instance.validaNif(nif);
         assertEquals(expResult, result);
-        fail("The test case is a prototype.");
+        
+        nif="4866982Y";
+        expResult=false;
+        result=instance.validaNif(nif);
+        assertEquals(expResult,result);
+        
+        nif="";
+        expResult=false;
+        result=instance.validaNif(nif);
+        assertEquals(expResult,result);
+        
+        nif="Y48669823";
+        expResult=false;
+        result=instance.validaNif(nif);
+        assertEquals(expResult,result);
+        
+        nif="48669823O";
+        expResult=false;
+        result=instance.validaNif(nif);
+        assertEquals(expResult,result);
+        
+        
+        
     }
 
     @Test
