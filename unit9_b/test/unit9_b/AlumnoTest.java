@@ -50,14 +50,41 @@ public class AlumnoTest {
     @Test
     public void testCalculaTasaMatricula() {
         System.out.println("calculaTasaMatricula");
-        int edad = 0;
+        int edad = 15;
         boolean familiaNumerosa = false;
-        boolean repetidor = false;
+        boolean repetidor = true;
         Alumno instance = new Alumno();
-        float expResult = 0.0F;
+        float expResult = 2000.0F;
         float result = instance.calculaTasaMatricula(edad, familiaNumerosa, repetidor);
         assertEquals(expResult, result, 0.0);
-        fail("The test case is a prototype.");
+        
+        edad = 15;
+        familiaNumerosa = true;
+        repetidor = true;
+        expResult = 250.0F;
+        result = instance.calculaTasaMatricula(edad, familiaNumerosa, repetidor);
+        assertEquals(expResult, result, 0.0);
+        
+        edad = 70;
+        familiaNumerosa = false;
+        repetidor = true;
+        expResult = 250.0F;
+        result = instance.calculaTasaMatricula(edad, familiaNumerosa, repetidor);
+        assertEquals(expResult, result, 0.0);
+        
+        edad = 55;
+        familiaNumerosa = false;
+        repetidor = false;
+        expResult = 400.0F;
+        result = instance.calculaTasaMatricula(edad, familiaNumerosa, repetidor);
+        assertEquals(expResult, result, 0.0);
+        
+        edad = 15;
+        familiaNumerosa = false;
+        repetidor = false;
+        expResult = 500.0F;
+        result = instance.calculaTasaMatricula(edad, familiaNumerosa, repetidor);
+        assertEquals(expResult, result, 0.0);
     }
     
 }
